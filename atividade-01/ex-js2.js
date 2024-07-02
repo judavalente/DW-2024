@@ -1,5 +1,5 @@
 function calcular(num1, num2, operador) {
-  let result;
+  return res;
 
   switch (operador) {
     case '+':
@@ -16,5 +16,10 @@ function calcular(num1, num2, operador) {
       break;
 }
 
-console.log(result))
 }
+
+const num1 = 5
+const num2 = 10
+const operador = "/"
+
+console.log(calcular(num1, num2, num3))
