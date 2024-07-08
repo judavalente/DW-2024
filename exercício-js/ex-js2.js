@@ -1,6 +1,4 @@
 function calcular(num1, num2, operador) {
-  return res;
-
   switch (operador) {
     case '+':
       res = num1 + num2;
@@ -14,6 +12,8 @@ function calcular(num1, num2, operador) {
     case '/':
       res = num1 / num2;
       break;
+
+    return res;
 }
 
 }
