@@ -18,3 +18,4 @@ const lado2 = 5;
 const lado3 = 5;
 
 const resultado = tipoTriangulo(lado1, lado2, lado3);
+console.log(resultado)
