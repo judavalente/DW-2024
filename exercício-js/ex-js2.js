@@ -13,13 +13,12 @@ function calcular(num1, num2, operador) {
       res = num1 / num2;
       break;
 
-    return res;
 }
-
+   return res;
 }
 
 const num1 = 5
 const num2 = 10
 const operador = "/"
 
-console.log(calcular(num1, num2, num3))
+console.log(calcular(num1, num2, operador))
