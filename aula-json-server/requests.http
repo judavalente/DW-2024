@@ -1,0 +1,35 @@
+@domain=http://localhost:3000
+###
+GET {{domain}}/hosts
+###
+GET {{domain}}/hosts/1
+###
+POST {{domain}}/hosts
+Content-Type: application/json
+
+{
+    "id": 6,
+    "ip": "192.168.0.6",
+    "mask": "255.255.255.0",
+    "ver": "v4"
+}
+###
+PUT {{domain}}/hosts/6
+Content-Type: application/json
+
+{
+    "id": 6,
+    "ip": "192.168.0.10",
+    "mask": "255.255.255.0",
+    "ver": "v4"
+}
+###
+PUT {{domain}}/hosts/4
+Content-Type: application/json
+
+{
+    "id": 4,
+    "ip": "192.168.0.4",
+    "mask": "255.255.255.0",
+    "ver": "v4"
+}
