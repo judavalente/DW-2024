@@ -1,19 +1,47 @@
-import express from 'express'
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const hostname = "127.0.0.1"
-const port = 3000
-const app = express()
+app.use(express.json());
 
-app.post('/lowercase', (req, res) => {
-    const text = req.body;
-    const response = {
-        "action" : "lowercase",
-        "input" : text,
-        "output": text.toLowerCase()
-    };
-    res.send(response);
+app.post('/:action', (req, res) => {
+    const { action } = req.params;
+    const { input } = req.body;
+
+    if (!input) {
+        return res.status(400).json({ error: 'O campo input é obrigatório' });
+    }
+
+    let result;
+
+    if (action === 'lowercase') {
+        result = input.toLowerCase();
+    } else if (action === 'uppercase') {
+        result = input.toUpperCase();
+    } else {
+        return res.status(400).json({ error: 'Ação desconhecida' });
+    }
+
+    res.json({ result });
 });
 
-app.listen(3000, () => {
-    console.log(`Servidor em https://${hostname}:${port}`)
-})
+app.get('/:action', (req, res) => {
+    const { action } = req.params;
+    const input = req.query.input.split(',').map(Number);
+
+    let result;
+
+    if (action === 'minimum') {
+        result = Math.min(...input);
+    } else if (action === 'maximum') {
+        result = Math.max(...input);
+    } else {
+        return res.status(400).json({ error: 'Ação desconhecida' });
+    }
+
+    res.json({ result });
+});
+
+app.listen(port, () => {
+    console.log(`API rodando em http://localhost:${port}`);
+});
